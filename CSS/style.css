@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Uncial+Antiqua&display=swap');
+
+:root {
+    --gold: #d4af37;
+    --silver: #9ea4a6;
+    --bg-dark: #0f1416;
+    --stone: #1b2224;
+    --text-light: #f3f2ef;
+    --text-muted: #c9d1d6;
+    --container-width: 1000px;
+    --gap: 1rem;
+    --radius: 8px;
+    --transition: 0.18s;
+    --about-photo-height: 340px;
+} 
+
+body {
+    margin: 0;
+    font-family: 'Uncial Antiqua', Georgia, serif;
+    line-height: 1.6;
+    color: var(--text-light);
+    background-color: var(--bg-dark);
+    background-image: radial-gradient(circle at 10% 10%, rgba(255,255,255,0.02), transparent 10%), linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.05));
+    background-attachment: fixed;
+}  
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--gold);
+    color: #fff;
+    background-image: linear-gradient(135deg, rgba(0,0,0,0.06), rgba(255,255,255,0.02));
+    border-bottom: 3px solid rgba(0,0,0,0.25);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}  
+
+h1, h2, h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin: 0 0 1rem 0;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+header h1 {
+    color: var(--text-light);
+}
+
+h1 small, h2 small {
+    display: block;
+    font-family: 'Uncial Antiqua', serif;
+    color: var(--text-muted);
+    font-size: 0.7em;
+    margin-top: 0.25rem;
+} 
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: var(--gap);
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+
+nav li + li::before {
+    content: "᛫";
+    color: rgba(255,255,255,0.45);
+    margin-right: 0.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.25rem 0.5rem;
+    transition: color var(--transition) ease, text-shadow var(--transition) ease;
+}
+
+section {
+    padding: 2rem 2rem;
+    max-width: var(--container-width);
+    margin: auto;
+}
+
+section ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0 1rem 0;
+}
+
+/* About section: two-column layout with image box to the right */
+.about {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: var(--gap);
+    align-items: center;
+} 
+.about-photo {
+    border: 2px solid rgba(212,175,55,0.9);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--stone);
+}
+.about-photo .media {
+    width: 100%;
+    height: var(--about-photo-height);
+    overflow: hidden;
+}
+.about-photo .media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+
+
+section ul li {
+    position: relative;
+    padding-left: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+}
+
+section ul li::before {
+    content: "ᚠ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--gold);
+    font-weight: 700;
+    font-family: 'Cinzel', serif;
+}  
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap);
+}
+
+.project {
+    background: linear-gradient(var(--stone), rgba(27,34,36,0.95));
+    background-color: var(--stone);
+    padding: 0;
+    text-align: left;
+    border: 2px solid rgba(212,175,55,0.9);
+    border-radius: var(--radius);
+    color: var(--text-muted);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.project .media {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.project .media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.project .caption {
+    padding: 1rem;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #0b0f11;
+    color: var(--text-muted);
+    border-top: 3px solid rgba(212,175,55,0.12);
+}
+
+footer a { color: var(--gold); text-decoration: none; }
+
+
+
+a:focus {
+    outline: 3px solid rgba(158,164,166,0.2);
+    outline-offset: 2px;
+}
+
+
+header nav a:hover {
+    color: var(--silver);
+    text-shadow: 0 0 8px rgba(158,164,166,0.18);
+}
+
+
+
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+
+    .projects {
+        grid-template-columns: 1fr;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .about-photo {
+        order: -1;
+    }
+}
+/* Kontakt */
+.contact {
+    background: #0f1416;
+    text-align: center;
+}
+
+.contact h2 {
+    margin-bottom: 2rem;
+}
+
+.contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 1rem;
+    border: none;
+    background: #f5f5f5;
+    font-size: 1rem;
+}
+
+.contact-form button {
+    padding: 1rem;
+    background: #999;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background: #777;
+}
